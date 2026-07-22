@@ -1,6 +1,6 @@
 import style from './FormLinks.module.css'
 import { Text } from '../Text/Text';
-import { useState } from 'react';
+import  React ,{ useState } from 'react';
 
 export interface LinkInput{
   title : string;
@@ -13,24 +13,33 @@ interface FormLinkProps{
   onAdd: (input : LinkInput) => void;
 }
 
-export function FormLink({ onAdd }: FormLinkProps) {
+export function FormLink( {onAdd}: FormLinkProps) {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
   const [tag, setTag] = useState('');
-}
 
 
-// function handleAdd =() =>{};
-  
 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+   e.preventDefault();
 
-export const FormLinks = () => {
+   onAdd({ title, link, description, tag });
+
+    setTitle('');
+    setLink('');
+    setDescription('');
+    setTag('');
+
+};
+ 
+
 
   return (
     <section className= {style.slate}>
 
         <Text variant= "h2"> Add a new link</Text>
+        <form onSubmit={handleSubmit}>
    
      <div>
         <label htmlFor="title">Title:</label>
@@ -39,6 +48,7 @@ export const FormLinks = () => {
           id="title"
           name="title"
           placeholder="Enter title"
+          
          />
      </div>
 
@@ -72,8 +82,10 @@ export const FormLinks = () => {
      </div>
 
       <button type="submit">Add Link</button>
+      </form>
 
    </section>
     
   )
 }
+

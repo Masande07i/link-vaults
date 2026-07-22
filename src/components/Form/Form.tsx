@@ -1,12 +1,18 @@
 import React from 'react'
-import { FormLinks } from '../FormLinks/FormLinks'
+import { FormLink, type LinkInput } from '../FormLinks/FormLinks'
 import { SavedLinks } from '../SavedLinks/SavedLinks'
 
+
 export const Form = () => {
+    const addNewLink = (input: LinkInput ) =>{
+        console.log(input);
+    };
+
+
   return (
     <div>
-       <FormLinks/>
-       <SavedLinks/>
+       <FormLink onAdd={addNewLink}></FormLink>
+       <SavedLinks></SavedLinks>
     </div>
   )
 }
