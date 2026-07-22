@@ -1,10 +1,31 @@
-
+import style from './FormLinks.module.css'
+import { Text } from '../Text/Text';
 import { useState } from 'react';
-import style from './Form.module.css'
-import { Text } from '../Text';
+
+export interface LinkInput{
+  title : string;
+  link: string;
+  description: string;
+  tag: string;
+}
+
+interface FormLinkProps{
+  onAdd: (input : LinkInput) => void;
+}
+
+export function FormLink({ onAdd }: FormLinkProps) {
+  const [title, setTitle] = useState('');
+  const [link, setLink] = useState('');
+  const [description, setDescription] = useState('');
+  const [tag, setTag] = useState('');
+}
 
 
-export const Form = () => {
+// function handleAdd =() =>{};
+  
+
+
+export const FormLinks = () => {
 
   return (
     <section className= {style.slate}>
@@ -17,6 +38,7 @@ export const Form = () => {
           type="text"
           id="title"
           name="title"
+          placeholder="Enter title"
          />
      </div>
 
@@ -26,6 +48,7 @@ export const Form = () => {
           type="url"
           id="link"
           name="link"
+          placeholder= " url"
           />
      </div>
 
@@ -34,6 +57,7 @@ export const Form = () => {
         <textarea
           id="description"
           name="description"
+          placeholder= "text"
           />
      </div>
 
@@ -43,6 +67,7 @@ export const Form = () => {
           type="text"
           id="tag"
           name="tag"
+          placeholder= " Enter tag"
         />
      </div>
 
