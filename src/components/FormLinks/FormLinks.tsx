@@ -3,14 +3,15 @@ import { Text } from '../Text/Text';
 import  React ,{ useState } from 'react';
 
 export interface LinkInput{
+  id: number;
   title : string;
   link: string;
   description: string;
-  tag: string;
+  tag ?: string;
 }
 
 interface FormLinkProps{
-  onAdd: (input : LinkInput) => void;
+  onAdd: (input : Omit<LinkInput,'id'>) => void;
 }
 
 export function FormLink( {onAdd}: FormLinkProps) {
@@ -23,6 +24,8 @@ export function FormLink( {onAdd}: FormLinkProps) {
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
    e.preventDefault();
+
+  
 
    onAdd({ title, link, description, tag });
 
@@ -48,7 +51,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="title"
           name="title"
           placeholder="Enter title"
-          
+          onChange={(e) => setTitle(e.target.value)}
          />
      </div>
 
@@ -59,6 +62,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="link"
           name="link"
           placeholder= " url"
+          onChange={(e) => setLink(e.target.value)}
           />
      </div>
 
@@ -68,6 +72,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="description"
           name="description"
           placeholder= "text"
+          onChange={(e) => setDescription(e.target.value)}
           />
      </div>
 
@@ -78,6 +83,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="tag"
           name="tag"
           placeholder= " Enter tag"
+          onChange={(e) => setTag(e.target.value)}
         />
      </div>
 

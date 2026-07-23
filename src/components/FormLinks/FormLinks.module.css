@@ -10,3 +10,6 @@
 .slate h2{
     padding-left: 30%;
 }
+label{
+    display: block;
+}
