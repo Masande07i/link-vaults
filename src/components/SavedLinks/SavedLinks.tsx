@@ -1,4 +1,4 @@
-import React from 'react'
+
 import style from './SavedLinks.module.css'
 import { Text } from '../Text/Text'
 import { Search } from '../Search/Search'
