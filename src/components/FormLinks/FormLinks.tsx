@@ -3,7 +3,7 @@ import { Text } from '../Text/Text';
 import  React ,{ useState } from 'react';
 
 export interface LinkInput{
-  id: number;
+  id: string;
   title : string;
   link: string;
   description: string;
@@ -47,6 +47,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="title"
           name="title"
           placeholder="Enter title"
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
          />
      </div>
@@ -58,6 +59,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="link"
           name="link"
           placeholder= " url"
+          value={link}
           onChange={(e) => setLink(e.target.value)}
           />
      </div>
@@ -68,6 +70,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="description"
           name="description"
           placeholder= "text"
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
           />
      </div>
@@ -79,6 +82,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           id="tag"
           name="tag"
           placeholder= " Enter tag"
+          value={tag}
           onChange={(e) => setTag(e.target.value)}
         />
      </div>
