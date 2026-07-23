@@ -17,7 +17,7 @@ export const SavedLinks = ({links}: SavedLinksProps) => {
        <Search/>
      
       <Text variant='h5' style={{color:" black", fontSize:30}}>Saved Links</Text>
-      <div className= {style.content}>
+      
       {links.length === 0 ?(
         <p className= {style.note}>Nothing saved yet</p>
       ):(
@@ -42,15 +42,8 @@ export const SavedLinks = ({links}: SavedLinksProps) => {
         </ul>
        
       )
-      
-      } </div>
+      } 
         
-
-    
-
-
-      
-
     </div>
   )
 }
