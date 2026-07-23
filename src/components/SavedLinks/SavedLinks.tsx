@@ -7,10 +7,11 @@ import { type LinkInput } from '../FormLinks/FormLinks'
 
 interface SavedLinksProps{
   links: LinkInput[];
+  onDelete ?: (id: number) => void
+  onUpdate: (id: number, changes: LinkInput) => void;
 }
 
-
-export const SavedLinks = ({links}: SavedLinksProps) => {
+export const SavedLinks = ({links, onDelete,onUpdate}: SavedLinksProps) => {
  
   return (
     <div className= {style.card}>
@@ -32,9 +33,10 @@ export const SavedLinks = ({links}: SavedLinksProps) => {
               )}
               {link.description && <p className={style.linkDesc}>{link.description}</p>}
               {link.tag && <span className={style.linkTag}>{link.tag}</span>}
-            <button type="submit">View</button>
-            <button type="submit">Update</button>
-            <button type="submit">delete</button>
+              <br/>
+
+             {/* <button type="button" onClick={() => onUpdate?.(link.id,link.)}>Update</button> */}
+            <button type="button" onClick={() => onDelete && onDelete(link.id)}>Delete</button>
             
             </li>
           ))}

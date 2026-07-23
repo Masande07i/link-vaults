@@ -11,11 +11,23 @@ export const Form = () => {
     const newLink: LinkInput = { id: Date.now(), ...input };
     setLinks((prevLinks) => [...prevLinks, newLink]);
   };
+
+const handleUpdate = () =>{
+  
+
+}
+
+const handleDelete = (id: string | number) => {
+  
+  setLinks(links.filter(link => link.id !== id));
+}
    
   return (
     <div>
        <FormLink onAdd={addNewLink}/>
-       <SavedLinks links={links}/>
+       <SavedLinks links={links} 
+       onDelete={handleDelete} 
+       onUpdate={handleUpdate}/>
     </div>
   )
 }

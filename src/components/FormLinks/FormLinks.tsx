@@ -25,8 +25,6 @@ export function FormLink( {onAdd}: FormLinkProps) {
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
    e.preventDefault();
 
-  
-
    onAdd({ title, link, description, tag });
 
     setTitle('');
@@ -36,8 +34,6 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
 };
  
-
-
   return (
     <section className= {style.slate}>
 
