@@ -6,8 +6,8 @@ import { SavedLinks } from '../SavedLinks/SavedLinks'
 
 export const Form = () => {
    const [links, setLinks] = useState<LinkInput[]>(() => {
-    
-     const saved = localStorage.getItem('my_saved_links');
+
+     const saved = localStorage.getItem('savedLinks');
      if (saved) {
        try {
          return JSON.parse(saved);
@@ -22,10 +22,8 @@ export const Form = () => {
    const [view, setView] = useState<'add' | 'saved'>('add');
 
     useEffect(() => {
-     localStorage.setItem('my_saved_links', JSON.stringify(links));
+     localStorage.setItem('savedLinks', JSON.stringify(links));
    }, [links]);
-
-
 
   const addNewLink = (input: Omit<LinkInput, 'id'>) => {
     const newLink: LinkInput = { id: crypto.randomUUID(), ...input };
@@ -33,14 +31,14 @@ export const Form = () => {
     setView('saved');
   };
 
-const handleUpdate = (id: string, changes: Omit<LinkInput, 'id'>) =>{
+  const handleUpdate = (id: string, changes: Omit<LinkInput, 'id'>) =>{
   setLinks((prev) => prev.map((link) => (link.id === id ? { ...link, ...changes } : link)));
     setEditingId(null);
-};
+  };
 
-const handleDelete = (id: string | number) => {
+  const handleDelete = (id: string | number) => {
   setLinks(links.filter(link => link.id !== id));
-}
+  };
    
   return (
      <div>
@@ -59,7 +57,7 @@ const handleDelete = (id: string | number) => {
           <button type="button" onClick={() => setView('add')}>
             Add another link
           </button>
-        </>
+        </> 
       )}
     </div>
   )

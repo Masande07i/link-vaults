@@ -12,7 +12,6 @@ export interface LinkInput{
 
 interface FormLinkProps{
   onAdd: (input : Omit<LinkInput,'id'>) => void;
-
 }
 
 export function FormLink( {onAdd}: FormLinkProps) {
@@ -90,8 +89,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       <button type="submit">Add Link</button>
      
       </form>
-      <button type="submit">View Links</button>
-
+    
    </section>
     
   )
