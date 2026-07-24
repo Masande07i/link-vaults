@@ -22,7 +22,6 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
     onStartEdit(link.id);
   }
 
- 
  return (
     <div className= {style.card}>
        <Search/>

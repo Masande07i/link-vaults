@@ -12,6 +12,7 @@ export interface LinkInput{
 
 interface FormLinkProps{
   onAdd: (input : Omit<LinkInput,'id'>) => void;
+
 }
 
 export function FormLink( {onAdd}: FormLinkProps) {
@@ -19,8 +20,6 @@ export function FormLink( {onAdd}: FormLinkProps) {
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
   const [tag, setTag] = useState('');
-
-
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
    e.preventDefault();
@@ -33,6 +32,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setTag('');
 
 };
+
  
   return (
     <section className= {style.slate}>
@@ -88,7 +88,9 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
      </div>
 
       <button type="submit">Add Link</button>
+     
       </form>
+      <button type="submit">View Links</button>
 
    </section>
     
