@@ -39,20 +39,28 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
                 <input value={draft.link} onChange={(e) => setDraft({ ...draft, link: e.target.value })} placeholder="Link" />
                 <textarea value={draft.description} onChange={(e) => setDraft({ ...draft, description: e.target.value })} placeholder="Description" />
                 <input value={draft.tag} onChange={(e) => setDraft({ ...draft, tag: e.target.value })} placeholder="Tag" />
-                <div>
-                  <button type="button" onClick={() => onUpdate(link.id, draft)}>Save</button>
-                  <button type="button" onClick={onCancelEdit}>Cancel</button>
+                
+                <div className= {style.buttons}>
+                  <button type="button"  className={style.saveBtn} onClick={() => onUpdate(link.id, draft)}>Save</button>
+                  <button type="button" className={style.cancelBtn} onClick={onCancelEdit}>Cancel</button>
                 </div>
               </li>
             ) : (
               <li key={link.id} className={style.listItem}>
-                {link.title && <h4 className={style.linkTitle}>{link.title}</h4>}
+                {link.title && <h1 className={style.linkTitle}>{link.title}</h1>}
                 {link.link && <a href={link.link} className={style.linkUrl}>{link.link}</a>}
                 {link.description && <p className={style.linkDesc}>{link.description}</p>}
                 {link.tag && <span className={style.linkTag}>{link.tag}</span>}
                 <br />
-                <button type="button" onClick={() => startEdit(link)}>Update</button>
-                <button type="button" onClick={() => onDelete && onDelete(link.id)}>Delete</button>
+               <div className={style.buttons}>
+                <button type="button" className={style.updateBtn} onClick={() => startEdit(link)}>
+                   Update
+                </button>
+
+                <button type="button" className={style.deleteBtn} onClick={() => onDelete && onDelete(link.id)}>
+                   Delete
+                 </button>
+               </div>
               </li>
           ))}
           

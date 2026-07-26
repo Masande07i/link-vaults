@@ -1,9 +1,60 @@
 .card{
     width: 800px;
-   
     background-color: rgba(245, 245, 245, 0.692); 
     border-radius: 8px; 
-    margin-top: 150px;  
+    margin-top: 100px;  
     padding: 10px;    
 }
+ 
+.listItem{
+    border:1px solid white;
+    background-color: rgb(147, 167, 167);
+    border-radius: 7px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
 
+.buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    padding-top:15px;
+}
+
+.updateBtn{
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    padding:10px 22px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.deleteBtn{
+    background:#ef4444;
+    color:white;
+    border-radius:8px;
+    padding:10px 22px;
+    cursor:pointer;
+    font-weight:600; 
+}
+
+.saveBtn{
+    background:#16a34a;
+    color:white;
+    border-radius:8px;
+    padding:10px 22px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
+
+.cancelBtn{
+    background:#6b7280;
+    color:white;
+    border-radius:8px;
+    padding:10px 22px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
