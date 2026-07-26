@@ -1,29 +1,28 @@
-import  {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { FormLink, type LinkInput } from '../FormLinks/FormLinks'
 import { SavedLinks } from '../SavedLinks/SavedLinks'
-
+import style from './Form.module.css'
 
 
 export const Form = () => {
-   const [links, setLinks] = useState<LinkInput[]>(() => {
+  const [links, setLinks] = useState<LinkInput[]>(() => {
+    const saved = localStorage.getItem('savedLinks');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to parse links from localStorage", e);
+      }
+    }
+    return [];
+  });
 
-     const saved = localStorage.getItem('savedLinks');
-     if (saved) {
-       try {
-         return JSON.parse(saved);
-       } catch (e) {
-         console.error("Failed to parse links from localStorage", e);
-       }
-     }
-     return [];
-   });
-   
-   const [editingId, setEditingId] = useState<string | null>(null);
-   const [view, setView] = useState<'add' | 'saved'>('add');
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [view, setView] = useState<'add' | 'saved'>('saved');
 
-    useEffect(() => {
-     localStorage.setItem('savedLinks', JSON.stringify(links));
-   }, [links]);
+  useEffect(() => {
+    localStorage.setItem('savedLinks', JSON.stringify(links));
+  }, [links]);
 
   const addNewLink = (input: Omit<LinkInput, 'id'>) => {
     const newLink: LinkInput = { id: crypto.randomUUID(), ...input };
@@ -31,19 +30,26 @@ export const Form = () => {
     setView('saved');
   };
 
-  const handleUpdate = (id: string, changes: Omit<LinkInput, 'id'>) =>{
-  setLinks((prev) => prev.map((link) => (link.id === id ? { ...link, ...changes } : link)));
+  const handleUpdate = (id: string, changes: Omit<LinkInput, 'id'>) => {
+    setLinks((prev) => prev.map((link) => (link.id === id ? { ...link, ...changes } : link)));
     setEditingId(null);
   };
 
   const handleDelete = (id: string | number) => {
-  setLinks(links.filter(link => link.id !== id));
+    setLinks(links.filter(link => link.id !== id));
   };
-   
+
   return (
-     <div>
+    <div>
       {view === 'add' ? (
-        <FormLink onAdd={addNewLink}  />
+        <>
+          <FormLink onAdd={addNewLink} />
+          <div className= {style.buttonView}>
+          <button type="button" onClick={() => setView('saved')}>
+            View Links
+          </button>
+          </div>
+        </>
       ) : (
         <>
           <SavedLinks
@@ -54,10 +60,12 @@ export const Form = () => {
             onStartEdit={setEditingId}
             onCancelEdit={() => setEditingId(null)}
           />
+          <div className={style.view2}>
           <button type="button" onClick={() => setView('add')}>
-            Add another link
+            Add a link
           </button>
-        </> 
+          </div>
+        </>
       )}
     </div>
   )

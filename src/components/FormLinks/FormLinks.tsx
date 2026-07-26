@@ -19,6 +19,7 @@ export function FormLink( {onAdd}: FormLinkProps) {
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
   const [tag, setTag] = useState('');
+  
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
    e.preventDefault();
@@ -85,9 +86,9 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           onChange={(e) => setTag(e.target.value)}
         />
      </div>
-
-      <button type="submit">Add Link</button>
-     
+      <div className={style.buttonAdd}>
+      <button type="submit">ADD LINK </button>
+       </div>
       </form>
     
    </section>

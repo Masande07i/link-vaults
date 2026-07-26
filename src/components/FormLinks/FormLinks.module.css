@@ -1,15 +1,42 @@
 .slate{
-    width: 800px;
-    height: 300px;
-    background-color: rgba(245, 245, 245, 0.692); 
-    border-radius: 8px; 
-    margin-top: 150px;  
-    padding: 10px;    
+    background-color: #dbdfe3;
+    border-radius: 16px;
+    padding: 22px;
+    height: 400px;
+    width: 250px;
+    margin-top: 90px;
 }
-
 .slate h2{
-    padding-left: 30%;
+    padding-left: 10%;
 }
 label{
     display: block;
+    font-weight: 600;
+
+}
+
+input, textarea {
+  border-radius: 8px;
+  padding:10px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  width: 90%;
+}
+
+.buttonAdd{
+    margin-top: 30px;
+    width:90%;
+    background:#6558F5;
+    padding:10px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button{
+    font-size: 800;
+    padding-left: 40%;
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
