@@ -23,15 +23,16 @@ input, textarea {
   width: 90%;
 }
 
-/* .buttonAdd{
-    margin-top: 30px;
-    width:90%;
-    background:#6558F5;
-    padding:10px;
+.buttonAdd{
+    /* margin-top: 30px;
+    width:90%; */
+       /* background-color: blue; */
+}
+    /* padding:10px;
     border-radius:10px;
     cursor:pointer;
-}
-
+} */
+/* 
 button{
     font-size: 800;
     padding-left: 40%;

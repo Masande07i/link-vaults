@@ -1,6 +1,7 @@
 import style from './FormLinks.module.css'
 import { Text } from '../Text/Text';
 import  React ,{ useState } from 'react';
+import { Button } from '../Button/Button';
 
 
 export interface LinkInput{
@@ -87,8 +88,9 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           onChange={(e) => setTag(e.target.value)}
         />
      </div>
-     
-      <button type="submit">ADD LINK </button>
+{/*      
+      <button type="submit">ADD LINK </button> */}
+      <Button label={'ADD LINK'} className={style.buttonAdd}/>
        
       </form>
     
