@@ -1,17 +1,17 @@
-import style from './Button.module.css'
+import styles from './Button.module.css'
 
-export interface buttonProps{
+export interface ButtonProps{
     label: string;
     onClick?: () => void;
     style?: React.CSSProperties;
-    className: string
+    className?: string
 
 }
 
-export const Button:React.FC<buttonProps> = ({label,onClick,style}) => {
+export const Button:React.FC<ButtonProps> = ({label,onClick,style,className}) => {
 
   return (
-    <button onClick={onClick} style={style}>
+    <button onClick={onClick} style={style} className={`${styles.button} ${className || "" }`}>
         {label}
     </button>
   )

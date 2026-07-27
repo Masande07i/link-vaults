@@ -13,53 +13,17 @@
     border-radius: 7px;
     margin-bottom: 10px;
     padding: 5px;
-    flex-wrap: wrap;
+    overflow-wrap: break-word;
 }
 
-/* .buttons{
+.buttons{
     display:flex;
     justify-content:flex-end;
     gap:12px;
     padding-top:15px;
+    padding:10px 22px;
 }
 
-.updateBtn{
-    background:#2563eb;
-    color:white;
-    border-radius:8px;
-    padding:10px 22px;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.deleteBtn{
-    background:#ef4444;
-    color:white;
-    border-radius:8px;
-    padding:10px 22px;
-    cursor:pointer;
-    font-weight:600; 
-}
-
-.saveBtn{
-    background:#16a34a;
-    color:white;
-    border-radius:8px;
-    padding:10px 22px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:600;
-}
-
-.cancelBtn{
-    background:#6b7280;
-    color:white;
-    border-radius:8px;
-    padding:10px 22px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:600;
-} */
 .linkUrl{
     flex-wrap: wrap;
     width:90%;

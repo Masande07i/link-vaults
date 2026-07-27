@@ -88,11 +88,11 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           onChange={(e) => setTag(e.target.value)}
         />
      </div>
-{/*      
-      <button type="submit">ADD LINK </button> */}
-      <Button label={'ADD LINK'} className={style.buttonAdd}/>
+
+      <Button label={'Add Link'} className={style.buttonAdd}/>
        
       </form>
+      
     
    </section>
     

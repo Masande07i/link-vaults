@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { FormLink, type LinkInput } from '../FormLinks/FormLinks'
 import { SavedLinks } from '../SavedLinks/SavedLinks'
 import style from './Form.module.css'
+import {Button}from '../Button/Button'
 
 
 
@@ -36,7 +37,7 @@ export const Form = () => {
     setEditingId(null);
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: string | number) => {
     setLinks(links.filter(link => link.id !== id));
   };
 
@@ -45,11 +46,8 @@ export const Form = () => {
       {view === 'add' ? (
         <>
           <FormLink onAdd={addNewLink} />
-          <div className= {style.buttonView}>
-          <button type="button" onClick={() => setView('saved')}>
-            View Links
-          </button>
-          </div>
+         <Button label={'View Links'} onClick={() => setView('saved')} className={style.buttonView}/>
+         
         </>
       ) : (
         <>
@@ -61,11 +59,9 @@ export const Form = () => {
             onStartEdit={setEditingId}
             onCancelEdit={() => setEditingId(null)}
           />
-          <div >
-          <button type="button" onClick={() => setView('add')}>
-            Add a link
-          </button>
-          </div>
+          
+           <Button label={'Add a Link'} onClick={() => setView('add')} className={style.buttonView}/>
+         
         </>
       )}
     </div>

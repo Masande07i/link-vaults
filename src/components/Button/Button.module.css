@@ -1,7 +1,6 @@
 button{
-    background-color: rgb(43, 226, 89);
-    margin-top: 30px;
-    width:90%;
+    color:white;
+    font-weight: 600;
     padding:10px;
     border-radius:10px;
     cursor:pointer;

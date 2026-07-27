@@ -1,27 +1,6 @@
-/* .buttonView{
+.buttonView{
     width:130px;
     margin:20px auto;
     padding-right: 20px;
-    background:transparent;
-    color:#fff;
-    border:1px solid #8b94a7;
-    border-radius:10px;
-    font-size:18px;
-    font-weight:500;
-    cursor:pointer;
-    
+    background-color: rgb(78, 179, 108);
 }
-
-.view2{
-     width:130px;
-    margin:20px auto;
-    padding-right: 20px;
-    background:transparent;
-    color:#fff;
-    border:1px solid #8b94a7;
-    border-radius:10px;
-    font-size:18px;
-    font-weight:500;
-    cursor:pointer;
-
-} */

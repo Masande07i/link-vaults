@@ -3,6 +3,7 @@ import style from './SavedLinks.module.css'
 import { Text } from '../Text/Text'
 import { Search } from '../Search/Search'
 import { type LinkInput } from '../FormLinks/FormLinks'
+import { Button } from '../Button/Button';
 
 
 interface SavedLinksProps{
@@ -42,8 +43,8 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
                 <input value={draft.tag} onChange={(e) => setDraft({ ...draft, tag: e.target.value })} />
                 
                 <div className= {style.buttons}>
-                  <button type="button"  onClick={() => onUpdate(link.id, draft)}>Save</button>
-                  <button type="button"  onClick={onCancelEdit}>Cancel</button>
+                  <Button label={'Save'} onClick={() => onUpdate(link.id, draft)} style={{backgroundColor: "#16a34a"}}/>
+                  <Button label={'Cancel'} onClick={onCancelEdit} style={{backgroundColor:"#6b7280"}}/> 
                 </div>
               </li>
             ) : (
@@ -54,13 +55,8 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
                 {link.tag && <span className={style.linkTag}>{link.tag}</span>}
                 <br />
                <div className={style.buttons}>
-                <button type="button"  onClick={() => startEdit(link)}>
-                   Update
-                </button>
-
-                <button type="button" onClick={() => onDelete && onDelete(link.id)}>
-                   Delete
-                 </button>
+                <Button label={'Update'} onClick={() => startEdit(link)} style={{backgroundColor: "#2563eb"}}/> 
+                <Button label={'Delete'} onClick={() => onDelete && onDelete(link.id)} style={{backgroundColor: "#ef4444"}}/> 
                </div>
               </li>
           ))}
