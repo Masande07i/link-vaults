@@ -4,6 +4,7 @@
     border-radius: 8px; 
     margin-top: 100px;  
     padding: 10px;    
+    position: sticky;
 }
  
 .listItem{
@@ -12,9 +13,10 @@
     border-radius: 7px;
     margin-bottom: 10px;
     padding: 5px;
+    flex-wrap: wrap;
 }
 
-.buttons{
+/* .buttons{
     display:flex;
     justify-content:flex-end;
     gap:12px;
@@ -57,4 +59,29 @@
     cursor:pointer;
     font-size:15px;
     font-weight:600;
+} */
+.linkUrl{
+    flex-wrap: wrap;
+    width:90%;
+}
+
+
+@media(max-width: 820px){
+    .card{
+        max-width: 500px;
+    }
+    .linkUrl{
+    flex-wrap: wrap;
+}
+}
+@media(max-width:521px){
+    .card{
+        max-width: 350px;
+    }
+}
+
+@media(max-width:372px){
+    .card{
+        max-width: 290px;
+    }
 }

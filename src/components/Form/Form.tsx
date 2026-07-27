@@ -35,7 +35,7 @@ export const Form = () => {
     setEditingId(null);
   };
 
-  const handleDelete = (id: string | number) => {
+  const handleDelete = (id: string) => {
     setLinks(links.filter(link => link.id !== id));
   };
 
@@ -60,7 +60,7 @@ export const Form = () => {
             onStartEdit={setEditingId}
             onCancelEdit={() => setEditingId(null)}
           />
-          <div className={style.view2}>
+          <div >
           <button type="button" onClick={() => setView('add')}>
             Add a link
           </button>

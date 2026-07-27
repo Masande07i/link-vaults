@@ -15,6 +15,7 @@ interface SavedLinksProps{
 }
 
 export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onCancelEdit}: SavedLinksProps) => {
+  
  const [draft, setDraft] = useState<Omit<LinkInput, 'id'>>({ title: '', link: '', description: '', tag: '' });
   
  function startEdit(link: LinkInput) {
@@ -35,29 +36,29 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
           {links.map((link) =>
             editingId === link.id ? (
               <li key={link.id} className={style.listItem}>
-                <input value={draft.title} onChange={(e) => setDraft({ ...draft, title: e.target.value })} placeholder="Title" />
-                <input value={draft.link} onChange={(e) => setDraft({ ...draft, link: e.target.value })} placeholder="Link" />
-                <textarea value={draft.description} onChange={(e) => setDraft({ ...draft, description: e.target.value })} placeholder="Description" />
-                <input value={draft.tag} onChange={(e) => setDraft({ ...draft, tag: e.target.value })} placeholder="Tag" />
+                <input value={draft.title} onChange={(e) => setDraft({ ...draft, title: e.target.value })}  />
+                <input value={draft.link} onChange={(e) => setDraft({ ...draft, link: e.target.value })} />
+                <textarea value={draft.description} onChange={(e) => setDraft({ ...draft, description: e.target.value })} />
+                <input value={draft.tag} onChange={(e) => setDraft({ ...draft, tag: e.target.value })} />
                 
                 <div className= {style.buttons}>
-                  <button type="button"  className={style.saveBtn} onClick={() => onUpdate(link.id, draft)}>Save</button>
-                  <button type="button" className={style.cancelBtn} onClick={onCancelEdit}>Cancel</button>
+                  <button type="button"  onClick={() => onUpdate(link.id, draft)}>Save</button>
+                  <button type="button"  onClick={onCancelEdit}>Cancel</button>
                 </div>
               </li>
             ) : (
               <li key={link.id} className={style.listItem}>
                 {link.title && <h1 className={style.linkTitle}>{link.title}</h1>}
                 {link.link && <a href={link.link} className={style.linkUrl}>{link.link}</a>}
-                {link.description && <p className={style.linkDesc}>{link.description}</p>}
+                {link.description && <h4 className={style.linkDesc}>{link.description}</h4>}
                 {link.tag && <span className={style.linkTag}>{link.tag}</span>}
                 <br />
                <div className={style.buttons}>
-                <button type="button" className={style.updateBtn} onClick={() => startEdit(link)}>
+                <button type="button"  onClick={() => startEdit(link)}>
                    Update
                 </button>
 
-                <button type="button" className={style.deleteBtn} onClick={() => onDelete && onDelete(link.id)}>
+                <button type="button" onClick={() => onDelete && onDelete(link.id)}>
                    Delete
                  </button>
                </div>
