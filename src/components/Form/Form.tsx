@@ -33,7 +33,9 @@ export const Form = () => {
   };
 
   const handleUpdate = (id: string, changes: Omit<LinkInput, 'id'>) => {
-    setLinks((prev) => prev.map((link) => (link.id === id ? { ...link, ...changes } : link)));
+    const updatedLinks = links.map((link) => (link.id === id ? { ...link, ...changes } : link))
+    localStorage.setItem('savedLinks', JSON.stringify(updatedLinks));
+    setLinks(updatedLinks);
     setEditingId(null);
   };
 

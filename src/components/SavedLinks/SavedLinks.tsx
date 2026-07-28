@@ -13,11 +13,24 @@ interface SavedLinksProps{
   editingId: string | null;
   onStartEdit: (id: string) => void;
   onCancelEdit: () => void;
+
 }
 
 export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onCancelEdit}: SavedLinksProps) => {
-  
+const [searchQuery, setSearchQuery] = useState<string>('')
  const [draft, setDraft] = useState<Omit<LinkInput, 'id'>>({ title: '', link: '', description: '', tag: '' });
+ const filteredResults = links.filter((link)=>{
+  return (
+    link.title.includes(searchQuery)|| 
+    link.description.includes(searchQuery)|| 
+    link.link.includes(searchQuery)|| 
+    (link.tag?.includes(searchQuery) || false)
+  );
+ })
+
+ const onSearch=(newValue: string)=>{
+  setSearchQuery(newValue)
+ }
   
  function startEdit(link: LinkInput) {
     setDraft({ title: link.title, link: link.link, description: link.description, tag: link.tag ?? '' });
@@ -26,7 +39,7 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
 
  return (
     <div className= {style.card}>
-       <Search/>
+       <Search searchQuery={searchQuery} onSearch={onSearch}/>
      
       <Text variant='h5' style={{color:" black", fontSize:30}}>Saved Links</Text>
       
@@ -34,7 +47,7 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
         <p className= {style.note}>Nothing saved yet</p>
       ):(
         <ul className= {style.list}>
-          {links.map((link) =>
+          {filteredResults.map((link) =>
             editingId === link.id ? (
               <li key={link.id} className={style.listItem}>
                 <input value={draft.title} onChange={(e) => setDraft({ ...draft, title: e.target.value })}  />

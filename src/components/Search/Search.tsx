@@ -1,10 +1,16 @@
 
 import { Searchbar } from './Searchbar'
 
-export const Search = () => {
+export interface SearchProps{
+  searchQuery : string
+  onSearch : (newValue: string)=> void
+
+}
+
+export const Search: React.FC<SearchProps> = ({searchQuery,onSearch}) => {
   return (
     <div>
-        <Searchbar/>
+        <Searchbar searchQuery={searchQuery}  onSearch={onSearch}/>
     </div>
   )
 }

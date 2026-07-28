@@ -14,6 +14,7 @@ export interface LinkInput{
 
 interface FormLinkProps{
   onAdd: (input : Omit<LinkInput,'id'>) => void;
+  
 }
 
 export function FormLink( {onAdd}: FormLinkProps) {
