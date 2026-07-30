@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div >
-        <Text variant = "h1" >Link Vaults</Text>
+        <Text variant = "h1" style={{color:"white"}} >Link Vaults </Text>
         
       </div>
     <Form/>
