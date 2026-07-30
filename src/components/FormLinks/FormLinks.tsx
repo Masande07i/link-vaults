@@ -22,19 +22,41 @@ export function FormLink( {onAdd}: FormLinkProps) {
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
   const [tag, setTag] = useState('');
-  
+
+
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
    e.preventDefault();
 
+   if(validate()){
+    
    onAdd({ title, link, description, tag });
 
     setTitle('');
     setLink('');
     setDescription('');
     setTag('');
+   }
 
 };
+
+const validate = () : boolean =>{
+  
+
+  if(!title.trim()){
+   alert( "Please insert title!")
+    return false;
+  }
+  if(!link.trim()){
+   alert( "Please insert Url!")
+    return false;
+  }
+  if(!description.trim()){
+    alert( "Please insert description!")
+    return false;
+  }
+  return true;
+}
 
  
   return (
@@ -52,6 +74,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           placeholder="Enter title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+
+        
          />
      </div>
 
