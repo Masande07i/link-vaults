@@ -62,7 +62,7 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
                 <input value={draft.tag} onChange={(e) => setDraft({ ...draft, tag: e.target.value })} />
                 
                 <div className= {style.buttons}>
-                  <Button label={'Save'} onClick={() => onUpdate(link.id, draft)} style={{backgroundColor: "#16a34a"}}/>
+                  <Button label={'Save'} onClick={() => onUpdate(link.id, draft)} style={{backgroundColor: "rgb(78, 107, 179)"}}/>
                   <Button label={'Cancel'} onClick={onCancelEdit} style={{backgroundColor:"#6b7280"}}/> 
                 </div>
               </li>
@@ -74,7 +74,7 @@ export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onC
                 {link.tag && <span className={style.linkTag}>{link.tag}</span>}
                 <br />
                <div className={style.buttons}>
-                <Button label={'Update'} onClick={() => startEdit(link)} style={{backgroundColor: "#2563eb"}}/> 
+                <Button label={'Update'} onClick={() => startEdit(link)} style={{backgroundColor: "rgb(78, 107, 179)"}}/> 
                 <Button label={'Delete'} onClick={() => onDelete && onDelete(link.id)} style={{backgroundColor: "#ef4444"}}/> 
                </div>
               </li>

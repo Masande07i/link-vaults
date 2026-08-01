@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { FormLink, type LinkInput } from '../FormLinks/FormLinks'
 import { SavedLinks } from '../SavedLinks/SavedLinks'
 import style from './Form.module.css'
-import {Button}from '../Button/Button'
+
 
 
 
@@ -47,8 +47,8 @@ export const Form = () => {
      <main className={style.container}>
       {view === 'add' ? (
         <>
-          <FormLink onAdd={addNewLink}/>
-          <Button label={'View Links'} onClick={() => setView('saved')} className={style.buttonView}/>
+          <FormLink onAdd={addNewLink} onViewLinks={() => setView('saved')}/>
+          
         </>
 
       ) : (

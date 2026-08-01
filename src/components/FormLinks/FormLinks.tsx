@@ -1,7 +1,7 @@
 import style from './FormLinks.module.css'
-import { Text } from '../Text/Text';
-import  React ,{ useState } from 'react';
-import { Button } from '../Button/Button';
+import { Text } from '../Text/Text'
+import  React ,{ useState } from 'react'
+import { Button } from '../Button/Button'
 
 
 export interface LinkInput{
@@ -14,10 +14,10 @@ export interface LinkInput{
 
 interface FormLinkProps{
   onAdd: (input : Omit<LinkInput,'id'>) => void;
-  
+  onViewLinks: () => void;
 }
 
-export function FormLink( {onAdd}: FormLinkProps) {
+export function FormLink( {onAdd, onViewLinks}: FormLinkProps) {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
@@ -71,7 +71,7 @@ const validate = () : boolean =>{
           type="text"
           id="title"
           name="title"
-          placeholder="Enter title"
+          placeholder="Enter a title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
 
@@ -85,7 +85,7 @@ const validate = () : boolean =>{
           type="url"
           id="link"
           name="link"
-          placeholder= " url"
+          placeholder= "Enter a URL"
           value={link}
           onChange={(e) => setLink(e.target.value)}
           />
@@ -96,28 +96,30 @@ const validate = () : boolean =>{
         <textarea
           id="description"
           name="description"
-          placeholder= "text"
+          placeholder= "Enter a description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           />
      </div>
 
      <div>
-        <label htmlFor="tag">Tag</label>
+        <label htmlFor="tag">Tag:</label>
         <input
           type="text"
           id="tag"
           name="tag"
-          placeholder= " Enter tag"
+          placeholder= "Enter a tag"
           value={tag}
           onChange={(e) => setTag(e.target.value)}
         />
      </div>
 
-      <Button label={'Add Link'} className={style.buttonAdd}/>
-       
-      </form>
-      
+      <div className={style.actions}>
+       <Button label="Save Link" type="submit" className={style.buttonAdd}/>
+
+       <Button label="View Links" type="button" onClick={onViewLinks} className={style.buttonView}/>
+      </div>
+    </form>
     
    </section>
     

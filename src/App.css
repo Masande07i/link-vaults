@@ -21,6 +21,18 @@ body{
     text-align:center;
     margin-bottom:50px;
 }
+.titleContainer{
+    margin-left:35%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.icon{
+    font-size:40px;
+    color:#3d6790;
+    border-radius:12px;
+}
 
 .topSec h1{
     color:white;
