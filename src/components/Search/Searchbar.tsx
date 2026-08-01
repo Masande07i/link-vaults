@@ -13,14 +13,25 @@ export const Searchbar: React.FC<SearchBarProps> = ({searchQuery, onSearch}) => 
   
   return (
 
-    <div>
-       <Text variant= {'span'} style={{color: 'rgb(20,20,20)', padding: '10px'}}>Search</Text>
-        <input type = 'text' className ={style.input} value={searchQuery} onChange={(e)=> {
-          onSearch(e.target.value)
+     <div className={style.searchContainer}>
 
-        }} />
-        <FaSearch  className= {style.icon}/>
+    <Text variant="span" > Search </Text>
+
+    <div className={style.inputContainer}>
+
+      <FaSearch className={style.icon} />
+
+      <input
+        type="text"
+        className={style.input}
+        placeholder="Search by title, tag or URL..."
+        value={searchQuery}
+        onChange={(e) => onSearch(e.target.value)}
+      />
+
     </div>
+
+  </div>
     
   )
 }

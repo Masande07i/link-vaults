@@ -11,13 +11,14 @@ interface SavedLinksProps{
   onDelete ?: (id: string) => void
   onUpdate: (id: string, changes: Omit<LinkInput, 'id'>) => void;
   editingId: string | null;
+  onAddLink: () => void;
   onStartEdit: (id: string) => void;
   onCancelEdit: () => void;
 
 }
 
-export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onCancelEdit}: SavedLinksProps) => {
-const [searchQuery, setSearchQuery] = useState<string>('')
+export const SavedLinks = ({links, onDelete,onUpdate,editingId, onStartEdit, onCancelEdit, onAddLink}: SavedLinksProps) => {
+ const [searchQuery, setSearchQuery] = useState<string>('')
  const [draft, setDraft] = useState<Omit<LinkInput, 'id'>>({ title: '', link: '', description: '', tag: '' });
  const filteredResults = links.filter((link)=>{
   return (
@@ -38,11 +39,16 @@ const [searchQuery, setSearchQuery] = useState<string>('')
   }
 
  return (
-    <div className= {style.card}>
+     <section className={style.page}>
+
+     <div className={style.toolbar}>
+      <Text variant="h2" > Saved Links </Text>
+
+      <Button label="+ Add Link" onClick={onAddLink} className={style.addButton}
+      />
+    </div>
        <Search searchQuery={searchQuery} onSearch={onSearch}/>
      
-      <Text variant='h5' style={{color:" black", fontSize:30}}>Saved Links</Text>
-      
       {links.length === 0 ? (
         <p className= {style.note}>Nothing saved yet</p>
       ):(
@@ -62,9 +68,9 @@ const [searchQuery, setSearchQuery] = useState<string>('')
               </li>
             ) : (
               <li key={link.id} className={style.listItem}>
-                {link.title && <h1 className={style.linkTitle}>{link.title}</h1>}
+                {link.title && <h3 className={style.linkTitle}>{link.title}</h3>}
                 {link.link && <a href={link.link} className={style.linkUrl}>{link.link}</a>}
-                {link.description && <h4 className={style.linkDesc}>{link.description}</h4>}
+                {link.description && <p className={style.linkDesc}>{link.description}</p>}
                 {link.tag && <span className={style.linkTag}>{link.tag}</span>}
                 <br />
                <div className={style.buttons}>
@@ -79,6 +85,6 @@ const [searchQuery, setSearchQuery] = useState<string>('')
       )
       } 
         
-    </div>
+    </section>
   )
 }

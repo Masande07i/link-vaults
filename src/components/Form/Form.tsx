@@ -44,13 +44,13 @@ export const Form = () => {
   };
 
   return (
-    <div>
+     <main className={style.container}>
       {view === 'add' ? (
         <>
-          <FormLink onAdd={addNewLink} />
-         <Button label={'View Links'} onClick={() => setView('saved')} className={style.buttonView}/>
-         
+          <FormLink onAdd={addNewLink}/>
+          <Button label={'View Links'} onClick={() => setView('saved')} className={style.buttonView}/>
         </>
+
       ) : (
         <>
           <SavedLinks
@@ -58,14 +58,13 @@ export const Form = () => {
             onDelete={handleDelete}
             onUpdate={handleUpdate}
             editingId={editingId}
+            onAddLink={() => setView("add")}
             onStartEdit={setEditingId}
             onCancelEdit={() => setEditingId(null)}
           />
           
-           <Button label={'Add a Link'} onClick={() => setView('add')} className={style.buttonView}/>
-         
         </>
       )}
-    </div>
+    </main>
   )
 }
